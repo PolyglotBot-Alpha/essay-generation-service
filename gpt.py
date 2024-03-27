@@ -21,7 +21,7 @@ def gpt_generate_essay(user_input):
         # temperature is used to adjust the innovativeness.
         # It ranges from 0 to 1. 0 means most confidence, 1 means most innovativeness.
         temperature=0.2,
-        max_tokens=500
+        max_tokens=200
     )
     print(response["choices"][0]["message"]["content"])
     return response["choices"][0]["message"]["content"] # return the output from gpt

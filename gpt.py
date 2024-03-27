@@ -23,7 +23,7 @@ def gpt_generate_essay(user_input):
         temperature=0.2,
         max_tokens=200
     )
-    print(response["choices"][0]["message"]["content"])
+    # print(response["choices"][0]["message"]["content"])
     return response["choices"][0]["message"]["content"] # return the output from gpt
 
 

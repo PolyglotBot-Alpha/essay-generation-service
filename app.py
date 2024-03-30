@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from py_eureka_client import eureka_client
 from dotenv import load_dotenv
 import os
-
 from gpt import OpenAIContentGenerator
 
 app = Flask(__name__)
@@ -12,6 +11,13 @@ eureka_server = "http://localhost:8761/eureka/"
 
 # Application name, host, and port
 app_name = "AI-Content-Generation"
+
+# The port at which your Flask application will be accessible
+port = 6000
+
+eureka_client.init(eureka_server=eureka_server,
+                   app_name=app_name,
+                   instance_port=port)
 
 # Load environment variables from .env file
 load_dotenv()
@@ -38,9 +44,4 @@ def process_input():
 
 
 if __name__ == '__main__':
-    # Register the application with Eureka
-    eureka_client.init(eureka_server=eureka_server,
-                       app_name=app_name,
-                       instance_port=app_port,
-                       instance_host=app_host)
-    app.run(host=app_host, port=app_port)
+    app.run(host='0.0.0.0', port=port)

@@ -25,7 +25,7 @@ class OpenAIContentGenerator:
             # temperature is used to adjust the innovativeness.
             # It ranges from 0 to 1. 0 means most confidence, 1 means most innovativeness.
             temperature=0.2,
-            max_tokens=200
+            max_tokens=50
         )
 
         return response["choices"][0]["message"]["content"]  # return the output from gpt

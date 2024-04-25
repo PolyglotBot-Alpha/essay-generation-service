@@ -16,7 +16,7 @@ eureka_server = os.getenv('EUREKA_SERVER_URL')
 app_name = "AI-Content-Generation"
 
 # The port at which your Flask application will be accessible
-port = int(os.getenv('PORT', 8080))
+port = int(os.getenv('PORT', 5000))
 
 eureka_client.init(eureka_server=eureka_server,
                    app_name=app_name,
@@ -48,4 +48,4 @@ def process_input():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='0.0.0.0', port=port)

@@ -4,7 +4,10 @@ from dotenv import load_dotenv
 import os
 from gpt import OpenAIContentGenerator
 from service import call_tts_service
+from flask_cors import CORS
+
 app = Flask(__name__)
+CORS(app)
 
 # Load environment variables from .env file
 load_dotenv()

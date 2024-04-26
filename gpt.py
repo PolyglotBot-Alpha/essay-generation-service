@@ -13,19 +13,19 @@ class OpenAIContentGenerator:
             messages=[
                 {
                     "role": "system",
-                    "content": "You are an assistant to help write English essay."
+                    "content": "You are an assistant to help write short English essay."
                     # can be changed to other system message
                 },
                 {
                     "role": "user",
-                    "content": user_input + " Please write an English essay based on the previous information."
+                    "content": user_input + " Please write a short English essay based on the previous information."
                 }
             ],
 
             # temperature is used to adjust the innovativeness.
             # It ranges from 0 to 1. 0 means most confidence, 1 means most innovativeness.
             temperature=0.2,
-            max_tokens=50
+            max_tokens=80
         )
 
         return response["choices"][0]["message"]["content"]  # return the output from gpt

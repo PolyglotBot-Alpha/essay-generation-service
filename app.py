@@ -42,10 +42,10 @@ def process_input():
         content_generator = OpenAIContentGenerator(api_key)
         generated_essay = content_generator.gpt_generate_essay(user_input)
 
-        tts_service_url = os.getenv("TTS_SERVER_URL")
-        audio_url = call_tts_service(tts_service_url, generated_essay)
+        # tts_service_url = os.getenv("TTS_SERVER_URL")
+        # audio_url = call_tts_service(tts_service_url, generated_essay)
 
-        return jsonify({"essay": generated_essay, "audio_url": audio_url}), 200
+        return jsonify({"essay": generated_essay, "audio_url": ""}), 200
     else:
         return jsonify({"message": "API key not found. Please set the API_KEY environment variable."}), 400
 
